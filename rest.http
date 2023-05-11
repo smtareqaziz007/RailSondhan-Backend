@@ -1,0 +1,113 @@
+### Updating a train
+PATCH  http://localhost:5173/location/6459d1f8fba33f78264871ca
+Content-Type: application/json
+
+{
+  "trainNumber": 724,
+  "location": {
+    "type": "Point",
+    "coordinates": [89.4194, 49.7749]
+  }
+}
+
+### Save a location
+POST  http://localhost:5173/location
+Content-Type: application/json
+
+{
+  "userID" : "12345678",
+  "trainNumber": 714,
+  "location": {
+    "type": "Point",
+    "coordinates": [ 45.42622296431601,23.736238906491643]
+  }
+}
+
+### Get estimated location for a train
+GET http://localhost:5173/location/estimated/759
+
+### Get all locations for a train
+GET http://localhost:5173/location/714
+
+### Get all locations
+GET http://localhost:5173/location
+
+### Get a location by id
+GET http://localhost:5173/location/6459ccfa310db4ee4550cd3d
+
+### Delete a location by id
+DELETE http://localhost:5173/location/645a84f0e6bd270f0fd59ea9
+
+
+### 404 Error
+POST http://localhost:5173/auth/logincdz
+
+### Register
+POST http://localhost:5173/auth/register
+Content-Type: application/json
+
+{
+  "email" : "aziz70@gmail.com",
+  "password" : "12345678"
+}
+
+### Login
+POST http://localhost:5173/auth/login
+Content-Type: application/json
+
+{
+  "email" : "aziz70@gmail.com",
+  "password" : "12345678"
+}
+
+### authorized access
+GET http://localhost:5173
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODM0NzE1NjMsImV4cCI6MTY4MzQ3OTE2NiwiYXVkIjoiNjQ1N2I3NWE1YmJjNjY3M2ZlOTM5NjM2IiwiaXNzIjoicmFpbHNvbmRoYW4uY29tIn0.CY3n0KgALStdxW2Y3XeQzzsSP63fyim192og-ycsqlQ
+
+###Refresh token Route
+POST http://localhost:5173/auth/refresh-token
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODM0NDMxMzUsImV4cCI6MTcxNTAwMDczNSwiYXVkIjoiNjQ1NzRkYmY4NDkzZjFlYzk4MjJlMTAyIiwiaXNzIjoicmFpbHNvbmRoYW4uY29tIn0.7e-JM8hnkmUziGTPLoJOXySZ6HPyd8Y_6bM_F_gGaUo"
+}
+
+###Logout Route
+DELETE http://localhost:5173/auth/logout
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODM0NzAyODYsImV4cCI6MTcxNTAyNzg4NiwiYXVkIjoiNjQ1N2I3NWE1YmJjNjY3M2ZlOTM5NjM2IiwiaXNzIjoicmFpbHNvbmRoYW4uY29tIn0.OoxiU_i6rJFzOJqkSeb6rvkhRwGHlz5etJJEo5r5rmU"
+}
+
+### Save a train
+POST http://localhost:5173/train
+Content-Type: application/json
+
+{
+  "name" : "PADMA",
+  "number" : 761,
+  "to" : "Rajshahi",
+  "from" : "Dhaka",
+  "departure" : "23:00"
+}
+
+### Get all trains
+GET http://localhost:5173/train
+
+### Get a train by id
+GET http://localhost:5173/train/6457e3398a769c67a1a708b1
+
+### Update by id
+PATCH http://localhost:5173/train/6459c5b9128b5f1cd3cac1ff
+Content-Type: application/json
+
+{
+  "name" : "BANALATA",
+  "number" : 754,
+  "to" : "Chapai"
+
+}
+
+### Delete a train
+DELETE http://localhost:5173/train/6459c5b9128b5f1cd3cac1ff
