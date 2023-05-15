@@ -85,13 +85,13 @@ module.exports = {
         return;
       }
 
-      // const deleted = await TrainLocation.deleteMany({
-      //   createdAt: { $lt: fiveMinutesAgo },
-      // });
+      const deleted = await TrainLocation.deleteMany({
+        createdAt: { $lt: fiveMinutesAgo },
+      });
 
       const result = await TrainLocation.find({
         trainNumber: trainNumber,
-        // createdAt: { $gte: fiveMinutesAgo },
+        createdAt: { $gte: fiveMinutesAgo },
       });
       // console.log(result[0].location.coordinates[0]);
 

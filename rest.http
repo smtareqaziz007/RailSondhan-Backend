@@ -11,23 +11,24 @@ Content-Type: application/json
 }
 
 ### Save a location
-POST  http://localhost:5173/location
+POST  http://localhost:3000/location
 Content-Type: application/json
 
 {
-  "userID" : "12345678",
+  "userID" : "1234567890",
   "trainNumber": 714,
   "location": {
     "type": "Point",
-    "coordinates": [ 45.42622296431601,23.736238906491643]
+    "coordinates": [ 44.42622296431601,22.736238906491643]
   }
 }
 
 ### Get estimated location for a train
-GET http://localhost:5173/location/estimated/759
+GET http://localhost:3000/location/estimated/714
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQxNDA1NjEsImV4cCI6MTY4NDE0NDE2MSwiYXVkIjoiNjQ2MGMyYWM5MWU0YmIyNDkyNjMxNjJmIiwiaXNzIjoicmFpbHNvbmRoYW4uY29tIn0.T1qM8OsV1_n4y4LKWaldczI_QWLH9b2sE2BEa3_-arw
 
 ### Get all locations for a train
-GET http://localhost:5173/location/714
+GET http://localhost:3000/location/714
 
 ### Get all locations
 GET http://localhost:5173/location
@@ -57,7 +58,7 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email" : "smtareqaziz7@gmail.com",
+  "email" : "smtareqaziz007@gmail.com",
   "password" : "12345678"
 }
 
@@ -84,6 +85,7 @@ Content-Type: application/json
 ### Save a train
 POST http://localhost:3000/train
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQxMjg3OTksImV4cCI6MTY4NDEzMjM5OSwiYXVkIjoiNjQ2MGMyYWM5MWU0YmIyNDkyNjMxNjJmIiwiaXNzIjoicmFpbHNvbmRoYW4uY29tIn0.qBPoGmx-hCsD0dbhvBdMVZ-0uuBqco7mLmTI-ZFRqN4
 
 {
   "name" : "Ekota",
@@ -101,6 +103,8 @@ Content-Type: application/json
 
 ### Get all trains
 GET http://localhost:3000/train
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQxMjg3OTksImV4cCI6MTY4NDEzMjM5OSwiYXVkIjoiNjQ2MGMyYWM5MWU0YmIyNDkyNjMxNjJmIiwiaXNzIjoicmFpbHNvbmRoYW4uY29tIn0.qBPoGmx-hCsD0dbhvBdMVZ-0uuBqco7mLmTI-ZFRqN4
+
 
 ### Get a train by id
 GET http://localhost:5173/train/6457e3398a769c67a1a708b1
