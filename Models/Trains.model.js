@@ -1,3 +1,4 @@
+const boolean = require("@hapi/joi/lib/types/boolean");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -7,10 +8,10 @@ const TrainSchema = new Schema({
     required: true,
   },
 
-  number: {
+  trainNumber: {
     type: Number,
     required: true,
-    unique: true,
+    // unique: true,
   },
 
   from: {
@@ -26,6 +27,20 @@ const TrainSchema = new Schema({
   departure: {
     type: String,
     required: true,
+  },
+
+  arrival: {
+    type: String,
+    required: true,
+  },
+
+  offDay: {
+    type: String,
+    // required: true,
+  },
+
+  isRunning: {
+    type: boolean,
   },
 });
 

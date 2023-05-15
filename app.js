@@ -25,8 +25,8 @@ app.use(cors());
 // Initialize DB
 require("./helpers/initDataBase")();
 
-app.use("/train", TrainRoute);
-app.use("/location", TrainLocationRoute);
+app.use("/train", verifyAccessToken, TrainRoute);
+app.use("/location", verifyAccessToken, TrainLocationRoute);
 app.use("/auth", AuthRoute);
 
 app.get("/", verifyAccessToken, async (req, res, next) => {

@@ -11,21 +11,28 @@ const client = require("../helpers/init_redis");
 module.exports = {
   register: async (req, res, next) => {
     try {
-      const { email, password } = req.body;
+      const { email, password, isVerified } = req.body;
       const result = await authSchema.validateAsync({ email, password });
-      // console.log(result);
 
       const doesExist = await User.findOne({ email: result.email });
+      // console.log(result);
       if (doesExist)
         throw createError.Conflict(result.email + " is already registered");
 
-      const user = new User(result);
-      const savedUser = await user.save();
+      // const user = new User({result.email, result.password, isVerified});
+      const user = new User({
+        email: result.email,
+        password: result.password,
+        isVerified,
+      });
 
-      const accessToken = await signAccessToken(savedUser.id);
-      const refreshToken = await signRefreshToken(savedUser.id);
+      const savedUser = await user.save();
+      const userID = savedUser.id;
+
+      const accessToken = await signAccessToken(userID);
+      const refreshToken = await signRefreshToken(userID);
       console.log(refreshToken);
-      res.send({ accessToken, refreshToken });
+      res.send({ userID, accessToken, refreshToken });
     } catch (error) {
       if (error.isJoi === true) error.status = 422;
       next(error);
@@ -42,11 +49,14 @@ module.exports = {
       if (!isMatch)
         throw createError.Unauthorized("Username/password not valid");
 
-      const accessToken = await signAccessToken(user.id);
-      const refreshToken = await signRefreshToken(user.id);
+      const userID = user.id;
 
-      res.send({ accessToken, refreshToken });
+      const accessToken = await signAccessToken(userID);
+      const refreshToken = await signRefreshToken(userID);
+
+      res.send({ userID, accessToken, refreshToken });
     } catch (error) {
+      console.log(error);
       if (error.isJoi === true)
         return next(createError.BadRequest("Invalid Username/Password"));
       next(error);

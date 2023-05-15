@@ -6,11 +6,12 @@ const Train = require("../Models/Trains.model");
 module.exports = {
   saveTrain: async (req, res, next) => {
     const train = new Train({
-      name: req.body.name,
-      number: req.body.number,
+      name: req.body.name + " Express",
+      trainNumber: req.body.trainNumber,
       from: req.body.from,
       to: req.body.to,
       departure: req.body.departure,
+      arrival: req.body.arrival,
     });
 
     try {

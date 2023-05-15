@@ -43,20 +43,21 @@ DELETE http://localhost:5173/location/645a84f0e6bd270f0fd59ea9
 POST http://localhost:5173/auth/logincdz
 
 ### Register
-POST http://localhost:5173/auth/register
+POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "email" : "aziz70@gmail.com",
-  "password" : "12345678"
+  "email" : "smtareqaziz7@gmail.com",
+  "password" : "12345678",
+  "isVerified" : false
 }
 
 ### Login
-POST http://localhost:5173/auth/login
+POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email" : "aziz70@gmail.com",
+  "email" : "smtareqaziz7@gmail.com",
   "password" : "12345678"
 }
 
@@ -81,31 +82,37 @@ Content-Type: application/json
 }
 
 ### Save a train
-POST http://localhost:5173/train
+POST http://localhost:3000/train
 Content-Type: application/json
 
 {
-  "name" : "PADMA",
-  "number" : 761,
-  "to" : "Rajshahi",
+  "name" : "Ekota",
+  "trainNumber" : 705,
+
+  "to" : "B Sirajul Islam",
   "from" : "Dhaka",
-  "departure" : "23:00"
+
+  "departure" : "10:10 AM",
+  "arrival" : "9:00 PM",
+  "offDay" : "Wednesday",
+
+  "isRunning" : false
 }
 
 ### Get all trains
-GET http://localhost:5173/train
+GET http://localhost:3000/train
 
 ### Get a train by id
 GET http://localhost:5173/train/6457e3398a769c67a1a708b1
 
 ### Update by id
-PATCH http://localhost:5173/train/6459c5b9128b5f1cd3cac1ff
+PATCH http://localhost:3000/train/6460cc27fef8620d0eb17521
 Content-Type: application/json
 
 {
-  "name" : "BANALATA",
-  "number" : 754,
-  "to" : "Chapai"
+  
+  "departure" : "2:45 PM",
+  "arrival" : "8:35 PM"
 
 }
 

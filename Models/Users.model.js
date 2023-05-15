@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
+const boolean = require("@hapi/joi/lib/types/boolean");
 
 const UserSchema = new Schema({
   name: {
@@ -25,6 +26,10 @@ const UserSchema = new Schema({
 
   balance: {
     type: Number,
+  },
+
+  isVerified: {
+    type: boolean,
   },
 });
 

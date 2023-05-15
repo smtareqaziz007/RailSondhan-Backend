@@ -7,7 +7,6 @@ const authSchema = joi.object({
     .min(8)
     .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
     .required(),
-
   // repeat_password: joi.ref("password"),
 });
 
