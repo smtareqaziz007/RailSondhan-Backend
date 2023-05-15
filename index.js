@@ -4,8 +4,6 @@ const cors = require("cors");
 const createError = require("http-errors");
 const dotenv = require("dotenv").config();
 const morgan = require("morgan");
-const moment = require("moment-timezone");
-moment.tz.setDefault("Asia/Dhaka");
 
 const TrainLocationRoute = require("./Routes/Location.route");
 const AuthRoute = require("./Routes/Auth.route");
@@ -25,7 +23,7 @@ app.use("/train", verifyAccessToken, TrainRoute);
 app.use("/location", verifyAccessToken, TrainLocationRoute);
 app.use("/auth", AuthRoute);
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello from express.");
 });
 
