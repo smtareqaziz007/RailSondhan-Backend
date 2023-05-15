@@ -24,11 +24,11 @@ Content-Type: application/json
 }
 
 ### Get estimated location for a train
-GET http://localhost:3000/location/estimated/714
+GET http://localhost:3000/location/estimated/769
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQxNDA1NjEsImV4cCI6MTY4NDE0NDE2MSwiYXVkIjoiNjQ2MGMyYWM5MWU0YmIyNDkyNjMxNjJmIiwiaXNzIjoicmFpbHNvbmRoYW4uY29tIn0.T1qM8OsV1_n4y4LKWaldczI_QWLH9b2sE2BEa3_-arw
 
 ### Get all locations for a train
-GET http://localhost:3000/location/714
+GET http://localhost:3000/location/769
 
 ### Get all locations
 GET http://localhost:5173/location
@@ -41,7 +41,7 @@ DELETE http://localhost:5173/location/645a84f0e6bd270f0fd59ea9
 
 
 ### 404 Error
-POST http://localhost:5173/auth/logincdz
+GET http://localhost:3000
 
 ### Register
 POST http://localhost:3000/auth/register

@@ -6,10 +6,6 @@ const dotenv = require("dotenv").config();
 const morgan = require("morgan");
 const moment = require("moment-timezone");
 moment.tz.setDefault("Asia/Dhaka");
-// process.env.TZ = "Asia/Dhaka";
-// d = new Date();
-// d.toLocaleTimeString();
-// console.log(d.toLocaleTimeString());
 
 const TrainLocationRoute = require("./Routes/Location.route");
 const AuthRoute = require("./Routes/Auth.route");
@@ -29,14 +25,15 @@ app.use("/train", verifyAccessToken, TrainRoute);
 app.use("/location", verifyAccessToken, TrainLocationRoute);
 app.use("/auth", AuthRoute);
 
-app.get("/", async (req, res, next) => {
+app.get("/", async (req, res) => {
   res.send("Hello from express.");
 });
 
+app.get("/ping", (req, res) => {
+  res.send("pong 🏓");
+});
+
 app.use((req, res, next) => {
-  // const err = new Error("404 Not Found");
-  // err.status = 404;
-  // next(err);
   next(createError(404, "Page not found"));
 });
 
