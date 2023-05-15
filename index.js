@@ -9,7 +9,7 @@ const TrainLocationRoute = require("./Routes/Location.route");
 const AuthRoute = require("./Routes/Auth.route");
 const TrainRoute = require("./Routes/Train.route");
 const { verifyAccessToken } = require("./helpers/jwt.helpers");
-require("./helpers/init_redis");
+// require("./helpers/init_redis");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
