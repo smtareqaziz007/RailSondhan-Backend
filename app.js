@@ -29,7 +29,7 @@ app.use("/train", verifyAccessToken, TrainRoute);
 app.use("/location", verifyAccessToken, TrainLocationRoute);
 app.use("/auth", AuthRoute);
 
-app.get("/", verifyAccessToken, async (req, res, next) => {
+app.get("/", async (req, res, next) => {
   res.send("Hello from express.");
 });
 
